@@ -1,9 +1,6 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FrontEndController;
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\PenulisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,19 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/dashboard', [FrontEndController::class, 'index'])->name('Home');
+// Route::get('/', App\Http\Controllers\FrontEndController::class, 'index')
+
+Route::get('/', [App\Http\Controllers\FrontEndController::class, 'index']);
+
+
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard');
-    Route::resource('/kategori', KategoriController::class);
+    Route::resource('/kategori', App\Http\Controllers\KategoriController::class);
     Route::resource('/artikel', App\Http\Controllers\ArtikelController::class);
-    Route::resource('/penulis', PenulisController::class);
+    Route::resource('/penulis', App\Http\Controllers\PenulisController::class);
     Route::resource('/tentang-kami', App\Http\Controllers\TentangKamiController::class);
 
 });
