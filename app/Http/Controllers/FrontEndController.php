@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artikel;
+use App\Models\kategori;
+use App\Models\Penulis;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -14,7 +17,16 @@ class FrontEndController extends Controller
     public function index()
     {
 
-        return view('frontend.layouts.frontend');
+        $penulis = Penulis::all();
+        $artikel = Artikel::latest()->paginate(4); // Use paginate() instead of get()
+        $kategori = kategori::all();
+
+        return view('frontend.layouts.home', [
+            'kategori' => $kategori,
+            'artikel' => $artikel,
+            'penulis' => $penulis,
+        ]);
+
     }
 
     /**
@@ -44,9 +56,15 @@ class FrontEndController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $artikel = Artikel::where('slug', $slug)->first();
+        $kategori = kategori::all();
+
+        return view('frontend.detail.detail-artikel', [
+            'artikel' => $artikel,
+            'kategori' => $kategori,
+        ]);
     }
 
     /**
@@ -55,9 +73,24 @@ class FrontEndController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function kategori($slug)
     {
-        //
+
+        $kategori = Kategori::where('slug', $slug)->firstOrFail();
+        $artikel = Artikel::where('kategori_id', $kategori->id)->get();
+        $penulis = Penulis::all();
+
+        return view('frontend.detail.blog-kategori', compact('kategori', 'artikel', 'penulis'));
+
+        // $kategori = kategori::where('slug', $slug)->first();
+        // $artikel = Artikel::all(); // Use paginate() instead of get()
+        // $penulis = Penulis::all();
+
+        // return view('frontend.detail.blog-kategori', [
+        //     'kategori' => $kategori,
+        //     'artikel' => $artikel,
+        //     'penulis' => $penulis,
+        // ]);
     }
 
     /**

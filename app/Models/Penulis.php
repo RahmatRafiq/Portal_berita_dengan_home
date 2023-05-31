@@ -15,5 +15,9 @@ class Penulis extends Model
         'nama_penulis',
         'slug',
     ];
+    public function artikel()
+    {
+        return $this->belongsTo(Artikel::class, 'penulis_id', 'id');
+    }
 
 }
