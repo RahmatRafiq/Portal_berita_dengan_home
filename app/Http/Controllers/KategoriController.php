@@ -26,7 +26,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('backend.kategori.create');
+        return view('backend.kategoris.create');
     }
 
     /**

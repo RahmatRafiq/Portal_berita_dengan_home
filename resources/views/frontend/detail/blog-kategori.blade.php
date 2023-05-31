@@ -109,17 +109,21 @@
 @section('content')
     <html lang="en" class="no-js">
 
-    <div class="container-fluid pb-4 pt-4 paddding">
-        <div class="container paddding">
-            <div class="row mx-0">
-                @if ($artikel->isNotEmpty())
-                    <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
-                        <div>
-                            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Berita
-                                {{ $artikel->first()->kategori->nama_kategori }}</div>
-                        </div>
+    <body>
 
-                        @foreach ($artikel as $item)
+
+        <div class="container-fluid pb-4 pt-4 paddding">
+            <div class="container paddding">
+                <div class="row mx-0">
+                    <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                        @forelse ($artikel as $item)
+                            @if ($loop->first)
+                                <div>
+                                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Berita
+                                        {{ $item->kategori->nama_kategori }}</div>
+                                </div>
+                            @endif
+
                             <div class="row pb-4">
                                 <a href="{{ route('detail-artikel', $item->slug) }}" class="col-md-5">
                                     <div class="fh5co_hover_news_img">
@@ -143,16 +147,19 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+
+                        @empty
+                            @if (isset($kategori))
+                                <h2>Data {{ $kategori->nama_kategori }} Kosong</h2>
+                            @else
+                                <h2>Data Kategori yang Anda Pilih Kosong</h2>
+                            @endif
+                        @endforelse
                     </div>
-                @else
-                    <h2>Data Kategori yang Anda Pilih Kosong</h2>
-                @endif
+                </div>
             </div>
         </div>
-    </div>
-
-    @include('frontend.includes.js')
+        @include('frontend.includes.js')
     </body>
 
     </html>
