@@ -69,7 +69,7 @@
                      class="mobile_logo_width" /></a>
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav mr-auto">
-                     @foreach ($kategori->take(5) as $kategori)
+                     @foreach ($kategori->take(6) as $kategori)
                          <li class="nav-item">
                              <a class="nav-link"
                                  href="{{ route('kategori', $kategori->slug) }}">{{ $kategori->nama_kategori }}

@@ -28,7 +28,6 @@ class PenulisController extends Controller
     public function create()
     {
         return view('backend.penulis.create');
-
     }
 
     /**

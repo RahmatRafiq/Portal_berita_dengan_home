@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artikel;
-use App\Models\kategori;
+use App\Models\Kategori;
 use App\Models\Penulis;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,7 @@ class DashboardController extends Controller
     {
         $jumlahPenulis = Penulis::count(); // Menghitung jumlah penulis
         $jumlahArtikel = Artikel::count(); // Menghitung jumlah artikel
-        $jumlahKategori = kategori::count(); // Menghitung jumlah penulis
+        $jumlahKategori = Kategori::count(); // Menghitung jumlah penulis
 
         return view('backend.dashboard', compact('jumlahPenulis', 'jumlahArtikel', 'jumlahKategori'));
 

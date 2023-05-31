@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artikel;
-use App\Models\kategori;
+use App\Models\Kategori;
 use App\Models\Penulis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +33,7 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        $kategori = kategori::all();
+        $kategori = Kategori::all();
         $penulis = Penulis::all();
         return view('backend.artikel.create', compact('penulis', 'kategori'));
     }
@@ -83,7 +83,7 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         $artikel = Artikel::find($id);
-        $kategori = kategori::all();
+        $kategori = Kategori::all();
         $penulis = Penulis::all();
         return view('backend.artikel.edit', compact('artikel', 'penulis', 'kategori'));
 

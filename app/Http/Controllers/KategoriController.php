@@ -15,7 +15,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategori = kategori::all();
+        $kategori = Kategori::all();
         return view('backend.kategori.index', compact('kategori'));
     }
 
@@ -26,7 +26,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('backend.kategoris.create');
+        return view('backend.kategori.create');
     }
 
     /**
@@ -68,7 +68,7 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $kategori = kategori::find($id);
+        $kategori = Kategori::find($id);
         return \view ('backend.kategori.edit', compact('kategori'));
     }
 
@@ -84,7 +84,7 @@ class KategoriController extends Controller
         $data = $request->all();
         $data['slug'] = str::slug($request->nama_kategori);
 
-        $kategori = kategori::findOrFail($id);
+        $kategori = Kategori::findOrFail($id);
         $kategori->update($data);
 
         return redirect()->route('kategori.index')->with(['success' => 'Data Berhasi Terupdate']);

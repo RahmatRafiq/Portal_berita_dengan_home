@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artikel;
-use App\Models\kategori;
+use App\Models\Kategori;
 use App\Models\Penulis;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class FrontEndController extends Controller
 
         $penulis = Penulis::all();
         $artikel = Artikel::latest()->paginate(4); // Use paginate() instead of get()
-        $kategori = kategori::all();
+        $kategori = Kategori::all();
 
         return view('frontend.layouts.home', [
             'kategori' => $kategori,
@@ -59,7 +59,7 @@ class FrontEndController extends Controller
     public function show($slug)
     {
         $artikel = Artikel::where('slug', $slug)->first();
-        $kategori = kategori::all();
+        $kategori = Kategori::all();
 
         return view('frontend.detail.detail-artikel', [
             'artikel' => $artikel,
@@ -73,25 +73,39 @@ class FrontEndController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function kategori($slug)
     {
-
-        $kategori = Kategori::where('slug', $slug)->firstOrFail();
-        $artikel = Artikel::where('kategori_id', $kategori->id)->get();
+        $kategori = Kategori::where('slug', $slug)->first();
+        $artikel = Artikel::all();
         $penulis = Penulis::all();
 
+        if (!$kategori) {
+            return abort(404); // Jika kategori tidak ditemukan, tampilkan halaman error 404
+        }
+
         return view('frontend.detail.blog-kategori', compact('kategori', 'artikel', 'penulis'));
-
-        // $kategori = kategori::where('slug', $slug)->first();
-        // $artikel = Artikel::all(); // Use paginate() instead of get()
-        // $penulis = Penulis::all();
-
-        // return view('frontend.detail.blog-kategori', [
-        //     'kategori' => $kategori,
-        //     'artikel' => $artikel,
-        //     'penulis' => $penulis,
-        // ]);
     }
+
+    // public function kategori($slug)
+    // {
+
+    //     // $kategori = Kategori::where('slug', $slug)->firstOrFail();
+    //     // $artikel = Artikel::where('kategori_id', $kategori->id)->get();
+    //     // $penulis = Penulis::all();
+
+    //     // return view('frontend.detail.blog-kategori', compact('kategori', 'artikel', 'penulis'));
+
+    //     $kategori = kategori::where('slug', $slug)->first();
+    //     $artikel = Artikel::all(); // Use paginate() instead of get()
+    //     $penulis = Penulis::all();
+
+    //     return view('frontend.detail.blog-kategori', [
+    //         'kategori' => $kategori,
+    //         'artikel' => $artikel,
+    //         'penulis' => $penulis,
+    //     ]);
+    // }
 
     /**
      * Update the specified resource in storage.
