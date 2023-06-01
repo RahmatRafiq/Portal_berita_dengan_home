@@ -1,67 +1,163 @@
- <div class="container-fluid paddding mb-5">
+ {{-- <div class="container-fluid paddding mb-5">
      <div class="row mx-0">
-         <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
-             <div class="fh5co_suceefh5co_height"><img src="images/nick-karvounis-78711.jpg" alt="img" />
-                 <div class="fh5co_suceefh5co_height_position_absolute"></div>
-                 <div class="fh5co_suceefh5co_height_position_absolute_font">
-                     <div class=""><a href="#" class="color_fff"> <i
-                                 class="fa fa-clock-o"></i>&nbsp;&nbsp;Dec 31,2017
-                         </a></div>
-                     <div class=""><a href="single.html" class="fh5co_good_font"> After all is said and
-                             done, more is said than done </a></div>
-                 </div>
-             </div>
-         </div>
-         <div class="col-md-6">
-             <div class="row">
-                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
-                     <div class="fh5co_suceefh5co_height_2"><img src="images/science-578x362.jpg" alt="img" />
+         @foreach ($artikel as $item)
+             @if ($item->kategori->nama_kategori === 'Kampus')
+                 <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
+                     <div class="fh5co_suceefh5co_height">
+                         <img src="{{ asset('uploads/' . $item->gambar_artikel) }}" alt="img" />
                          <div class="fh5co_suceefh5co_height_position_absolute"></div>
-                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
-                             <div class=""><a href="#" class="color_fff"> <i
-                                         class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
-                                     28,2017 </a></div>
-                             <div class=""><a href="single.html" class="fh5co_good_font_2"> After all is
-                                     said and done, <br>more is said than done </a></div>
+                         <div class="fh5co_suceefh5co_height_position_absolute_font">
+                             <div class="">
+                                 <a href="{{ route('detail-artikel', $item->slug) }}" class="color_fff">
+                                     <i
+                                         class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $item->created_at->format('d M Y') }}</a>
+                             </div>
+                             <div class="">
+                                 <a href="{{ route('detail-artikel', $item->slug) }}" class="fh5co_good_font">
+                                     {{ $item->judul }}
+                                 </a>
+                             </div>
                          </div>
                      </div>
                  </div>
-                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
-                     <div class="fh5co_suceefh5co_height_2"><img src="images/joe-gardner-75333.jpg" alt="img" />
-                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
-                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
-                             <div class=""><a href="#" class="color_fff"> <i
-                                         class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct 28,2017 </a></div>
-                             <div class=""><a href="single.html" class="fh5co_good_font_2"> After all is
-                                     said and done... </a></div>
+             @break
+         @endif
+     @endforeach
+     <div class="col-md-6">
+         <div class="row">
+             @foreach ($artikel as $item)
+                 @if ($item->kategori->nama_kategori === 'Opini')
+                     <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                         <div class="fh5co_suceefh5co_height_2"><img
+                                 src="{{ asset('uploads/' . $item->gambar_artikel) }}" alt="img" />
+                             <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                             <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                                 <div class=""><a href="{{ route('detail-artikel', $item->slug) }}"
+                                         class="color_fff"> <i
+                                             class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $item->created_at->format('d M Y') }}
+                                     </a></div>
+                                 <div class=""><a href="{{ route('detail-artikel', $item->slug) }}"
+                                         class="fh5co_good_font_2"> {{ $item->judul }} </a></div>
+                             </div>
                          </div>
                      </div>
-                 </div>
-                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
-                     <div class="fh5co_suceefh5co_height_2"><img src="images/ryan-moreno-98837.jpg" alt="img" />
-                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
-                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
-                             <div class=""><a href="#" class="color_fff"> <i
-                                         class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
-                                     28,2017 </a></div>
-                             <div class=""><a href="single.html" class="fh5co_good_font_2"> After all is
-                                     said and done, more is said than done </a></div>
+                 @endif
+             @endforeach
+             @foreach ($artikel as $item)
+                 @if ($item->kategori->nama_kategori === 'Breaking News')
+                     <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                         <div class="fh5co_suceefh5co_height_2"><img
+                                 src="{{ asset('uploads/' . $item->gambar_artikel) }}" alt="img" />
+                             <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                             <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                                 <div class=""><a href="{{ route('detail-artikel', $item->slug) }}"
+                                         class="color_fff"> <i
+                                             class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $item->created_at->format('d M Y') }}
+                                     </a></div>
+                                 <div class=""><a href="{{ route('detail-artikel', $item->slug) }}"
+                                         class="fh5co_good_font_2"> {{ $item->judul }} </a></div>
+                             </div>
                          </div>
                      </div>
-                 </div>
-                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
-                     <div class="fh5co_suceefh5co_height_2"><img src="images/10-1-1-875x500.jpg" alt="img" />
-                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
-                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
-                             <div class=""><a href="#" class="color_fff"> <i
-                                         class="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
-                                     28,2017 </a></div>
-                             <div class=""><a href="single.html" class="fh5co_good_font_2"> After all is
-                                     said and done, more is said... </a></div>
+                 @endif
+             @endforeach
+
+             @foreach ($artikel as $item)
+                 @if ($item->kategori->nama_kategori === 'Mancanegara')
+                     <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                         <div class="fh5co_suceefh5co_height_2">
+                             <img src="{{ asset('uploads/' . $item->gambar_artikel) }}" alt="img" />
+                             <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                             <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                                 <div class=""><a href="{{ route('detail-artikel', $item->slug) }}"
+                                         class="color_fff"> <i
+                                             class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $item->created_at->format('d M Y') }}
+                                     </a></div>
+                                 <div class=""><a href="{{ route('detail-artikel', $item->slug) }}"
+                                         class="fh5co_good_font_2"> {{ $item->judul }} </a></div>
+                             </div>
                          </div>
                      </div>
-                 </div>
-             </div>
+                 @endif
+             @endforeach
+             @foreach ($artikel as $item)
+                 @if ($item->kategori->nama_kategori === 'Puisi')
+                     <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                         <div class="fh5co_suceefh5co_height_2">
+                             <img src="{{ asset('uploads/' . $item->gambar_artikel) }}" alt="img" />
+                             <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                             <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                                 <div class=""><a href="{{ route('detail-artikel', $item->slug) }}"
+                                         class="color_fff"> <i
+                                             class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $item->created_at->format('d M Y') }}
+                                     </a></div>
+                                 <div class=""><a href="{{ route('detail-artikel', $item->slug) }}"
+                                         class="fh5co_good_font_2"> {{ $item->judul }} </a></div>
+                             </div>
+                         </div>
+                     </div>
+                 @endif
+             @endforeach
          </div>
      </div>
  </div>
+</div> --}}
+
+
+ {{-- <div class="container-fluid paddding mb-5">
+     <div class="row mx-0">
+         @foreach ($artikel as $item)
+             @if ($item->kategori->nama_kategori === 'Kampus')
+                 <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
+                     <div class="fh5co_suceefh5co_height">
+                         <img src="{{ asset('uploads/' . $item->gambar_artikel) }}" alt="img" />
+                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                         <div class="fh5co_suceefh5co_height_position_absolute_font">
+                             <div class="">
+                                 <a href="{{ route('detail-artikel', $item->slug) }}" class="color_fff">
+                                     <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $item->created_at->format('d M Y') }}
+                                 </a>
+                             </div>
+                             <div class="">
+                                 <a href="{{ route('detail-artikel', $item->slug) }}" class="fh5co_good_font">
+                                     {{ $item->judul }}
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             @endif
+         @endforeach
+
+         <div class="col-md-6">
+             <div class="row">
+                 @forelse ($artikel as $item)
+                     @if ($item->kategori->nama_kategori === 'Opini' || $item->kategori->nama_kategori === 'Breaking News' || $item->kategori->nama_kategori === 'Mancanegara' || $item->kategori->nama_kategori === 'Puisi')
+                         <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                             <div class="fh5co_suceefh5co_height_2">
+                                 <img src="{{ asset('uploads/' . $item->gambar_artikel) }}" alt="img" />
+                                 <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                                 <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                                     <div class="">
+                                         <a href="{{ route('detail-artikel', $item->slug) }}" class="color_fff">
+                                             <i
+                                                 class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ $item->created_at->format('d M Y') }}
+                                         </a>
+                                     </div>
+                                     <div class="">
+                                         <a href="{{ route('detail-artikel', $item->slug) }}"
+                                             class="fh5co_good_font_2">{{ $item->judul }}</a>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     @endif
+                 @empty
+                     <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                         <p>Tidak ada artikel dalam kategori Opini, Breaking News, Mancanegara, atau Puisi.</p>
+                     </div>
+                 @endforelse
+             </div>
+         </div>
+     </div>
+ </div> --}}
