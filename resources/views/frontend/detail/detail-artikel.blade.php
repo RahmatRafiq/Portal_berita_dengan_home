@@ -4,6 +4,7 @@
     <html lang="en" class="no-js">
 
     <body class="single">
+
         <div id="fh5co-title-box"
             style="
                 background-image: url('{{ asset('uploads/' . $artikel->gambar_artikel) }}');
@@ -14,8 +15,8 @@
             <div class="page-title">
                 <img src="{{ asset('images/person_1.jpg') }}" alt="Free HTML5 by FreeHTMl5.co" />
                 <span>{{ $artikel->created_at->format('d M Y') }}</span>
-                <div color="white">
-                    <h3>{{ $artikel->judul }}</h3>
+                <div class="color_fff">
+                    <h3 class="judul-artikel">{{ $artikel->judul }}</h3>
                 </div>
             </div>
         </div>
@@ -29,7 +30,7 @@
                         <br>
                         <p>
                             <em>
-                                Penulis:{{ $artikel->penulis->nama_penulis }}
+                                Penulis: {{ $artikel->penulis->nama_penulis }}
                             </em>
                         </p>
                     </div>
