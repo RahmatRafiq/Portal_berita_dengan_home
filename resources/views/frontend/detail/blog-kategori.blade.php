@@ -64,12 +64,11 @@
     <html lang="en" class="no-js">
 
     <body class="single ">
-
         <div class="container-fluid pb-4 pt-4 paddding">
             <div class="container paddding">
                 <div class="row mx-0">
                     <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-                        @forelse ($artikel as $item)
+                        @forelse ($artkl as $item)
                             @if ($loop->first)
                                 <div>
                                     <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">
@@ -109,14 +108,13 @@
 
                 @empty
                     @if (isset($kategori))
-                        <h2>Data {{ $kategori->nama_kategori }} Kosong</h2>
+                        <h2>Berita {{ $kategori->nama_kategori }} Kosong</h2>
                     @else
-                        <h2>Data Kategori yang Anda Pilih Kosong</h2>
+                        <h2>Berita Kategori yang Anda Pilih Kosong</h2>
                     @endif
                     @endforelse
                 </div>
             </div>
-        </div>
         </div>
         @include('frontend.includes.js')
     </body>

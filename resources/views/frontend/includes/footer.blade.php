@@ -5,27 +5,33 @@
               </div>
               <div class="clearfix"></div>
               <div class="col-12 col-md-4 col-lg-3">
-                  <div class="footer_main_title py-3"> About</div>
-                  <div class="footer_sub_about pb-3"> Lorem Ipsum is simply dummy text of the printing and
-                      typesetting
-                      industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                      unknown printer took a galley of type and scrambled it to make a type specimen book.
-                  </div>
-                  <div class="footer_mediya_icon">
-                      <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
-                              <div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div>
-                          </a></div>
-                      <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
-                              <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
-                          </a></div>
-                      <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
-                              <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
-                          </a></div>
-                      <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
-                              <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
-                          </a></div>
-                  </div>
+                  @foreach ($tentangkami as $item)
+                      <div class="footer_main_title py-3"> Tentang kami</div>
+                      <div class="footer_sub_about pb-3">
+
+                          {!! $item->deskripsi !!}
+
+                      </div>
+                      <div class="footer_mediya_icon">
+                          <div class="text-center d-inline-block">
+                              <a href="{{ $item->youtube }}" class="fh5co_display_table_footer">
+                                  <div class="fh5co_verticle_middle">
+                                      <i class="fa fa-youtube"></i>
+                                  </div>
+                              </a>
+                          </div>
+                          <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                                  <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+                              </a></div>
+                          <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                                  <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
+                              </a></div>
+                          <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                                  <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+                              </a></div>
+                      </div>
               </div>
+              @endforeach
               <div class="col-12 col-md-3 col-lg-2">
                   <div class="footer_main_title py-3"> Category</div>
                   <ul class="footer_menu">

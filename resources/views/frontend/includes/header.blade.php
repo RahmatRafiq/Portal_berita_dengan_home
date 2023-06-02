@@ -14,10 +14,14 @@
      </div>
  </div>
  <div class="container-fluid">
-     <div class="container">
-         <div class="row">
-             <div class="col-12 col-md-3 fh5co_padding_menu">
-                 <img src="images/logo.png" alt="img" class="fh5co_logo_width" />
+     @foreach ($tentangkami as $tentang)
+         <div class="container">
+             <div class="row">
+                 <a href="/">
+                     <div class="col-12 col-md-3 fh5co_padding_menu">
+                         <img src="{{ asset('uploads/' . $tentang->gambar) }}" alt="img"
+                             class="fh5co_logo_width" />
+                 </a>
              </div>
              <div class="col-12 col-md-9 align-self-center fh5co_mediya_right">
                  <div class="text-center d-inline-block">
@@ -45,19 +49,10 @@
                          <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
                      </a>
                  </div>
-                 <!--<div class="d-inline-block text-center"><img src="images/country.png" alt="img" class="fh5co_country_width"/></div>-->
-                 <div class="d-inline-block text-center dd_position_relative ">
-                     <select class="form-control fh5co_text_select_option">
-                         <option>English </option>
-                         <option>French </option>
-                         <option>German </option>
-                         <option>Spanish </option>
-                     </select>
-                 </div>
-                 <div class="clearfix"></div>
              </div>
          </div>
-     </div>
+ </div>
+ @endforeach
  </div>
  <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
      <div class="container padding_786">
@@ -69,10 +64,9 @@
                      class="mobile_logo_width" /></a>
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav mr-auto">
-                     @foreach ($kategori->take(6) as $kategori)
+                     @foreach ($ktgr->take(6) as $ktgr)
                          <li class="nav-item">
-                             <a class="nav-link"
-                                 href="{{ route('kategori', $kategori->slug) }}">{{ $kategori->nama_kategori }}
+                             <a class="nav-link" href="{{ route('kategori', $ktgr->slug) }}">{{ $ktgr->nama_kategori }}
                                  <span class="sr-only">(current)
                                  </span>
                              </a>

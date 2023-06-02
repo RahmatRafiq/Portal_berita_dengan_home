@@ -26,6 +26,12 @@
                         <p>
                             {!! $artikel->body !!}
                         </p>
+                        <br>
+                        <p>
+                            <em>
+                                Penulis:{{ $artikel->penulis->nama_penulis }}
+                            </em>
+                        </p>
                     </div>
                     @include('frontend.includes.aside')
                 </div>
