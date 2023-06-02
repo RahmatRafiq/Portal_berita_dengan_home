@@ -40,7 +40,6 @@
                         </div>
                     @endforeach
                 </div>
-
                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
                     @foreach ($artkl->where('kategori.nama_kategori', 'Breaking News')->take(1) as $item)
                         <div class="fh5co_suceefh5co_height_2">
@@ -58,7 +57,6 @@
                         </div>
                     @endforeach
                 </div>
-
                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
                     @foreach ($artkl->where('kategori.nama_kategori', 'Mancanegara')->take(1) as $item)
                         <div class="fh5co_suceefh5co_height_2">
@@ -76,7 +74,6 @@
                         </div>
                     @endforeach
                 </div>
-
                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
                     @foreach ($artkl->where('kategori.nama_kategori', 'Puisi')->take(1) as $item)
                         <div class="fh5co_suceefh5co_height_2">
