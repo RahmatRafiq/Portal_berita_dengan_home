@@ -17,6 +17,7 @@ class FrontEndController extends Controller
         $penulis = Penulis::all();
         $artikel = Artikel::latest()->paginate(5);
         $artkl = Artikel::orderBy('created_at', 'desc')->get();
+        $artikelbulan = Artikel::whereMonth('created_at', now()->month)->orderBy('created_at', 'desc')->take(7)->get();
         $kategori = Kategori::all();
         $ktgr = Kategori::all();
         $tentangkami = TentangKami::all();
@@ -30,6 +31,7 @@ class FrontEndController extends Controller
             'ktgr' => $ktgr,
             'tentangkami' => $tentangkami,
             'trendingArtikel' => $trendingArtikel,
+            'artikelbulan' => $artikelbulan,
 
         ]);
 
@@ -39,6 +41,7 @@ class FrontEndController extends Controller
     {
         $artikel = Artikel::where('slug', $slug)->first();
         $artikel->increment('views'); //melakukan penambahan jumlah views ketika mengakses detail berita berdasarkan slug
+        $artikelbulan = Artikel::whereMonth('created_at', now()->month)->orderBy('created_at', 'desc')->take(7)->get();
         $kategori = Kategori::all();
         $ktgr = Kategori::all();
         $tentangkami = TentangKami::all();
@@ -50,6 +53,8 @@ class FrontEndController extends Controller
             'ktgr' => $ktgr,
             'tentangkami' => $tentangkami,
             'trendingArtikel' => $trendingArtikel,
+            'artikelbulan' => $artikelbulan,
+
         ]);
     }
 
