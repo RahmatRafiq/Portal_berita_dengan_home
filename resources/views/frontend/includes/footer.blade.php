@@ -1,7 +1,12 @@
   <div class="container-fluid fh5co_footer_bg pb-3">
       <div class="container animate-box">
           <div class="row">
-              <div class="col-12 spdp_right py-5"><img src="images/white_logo.png" alt="img" class="footer_logo" />
+              <div class="col-12 spdp_right py-5"> <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
               </div>
               <div class="clearfix"></div>
               <div class="col-12 col-md-4 col-lg-3">
@@ -79,8 +84,7 @@
                   <a href="#" class="footer_img_post_6"><img src="images/zack-minor-15104.jpg"
                           alt="img" /></a>
                   <a href="#" class="footer_img_post_6"><img src="images/download.jpg" alt="img" /></a>
-                  <a href="#" class="footer_img_post_6"><img src="images/download (2).jpg"
-                          alt="img" /></a>
+                  <a href="#" class="footer_img_post_6"><img src="images/download (2).jpg" alt="img" /></a>
                   <a href="#" class="footer_img_post_6"><img src="images/ryan-moreno-98837.jpg"
                           alt="img" /></a>
               </div>

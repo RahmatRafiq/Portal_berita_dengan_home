@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\FrontEndController::class, 'index']);
 Route::get('/detail-artikel/{slug}', [App\Http\Controllers\FrontEndController::class, 'show'])->name('detail-artikel');
 Route::get('/kategori/{slug}', [App\Http\Controllers\FrontEndController::class, 'kategori'])->name('kategori');
+Route::get('/search', [App\Http\Controllers\FrontEndController::class, 'search'])->name('search');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
