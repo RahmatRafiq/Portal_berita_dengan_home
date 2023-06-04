@@ -124,4 +124,17 @@ class FrontEndController extends Controller
             'trendingArtikel' => $trendingArtikel,
         ]);
     }
+
+    public function about()
+    {
+        $tentangkami = TentangKami::all();
+        $ktgr = Kategori::all();
+        $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
+        return view('frontend.detail.about', [
+            'tentangkami' => $tentangkami,
+            'ktgr' => $ktgr,
+            'trendingArtikel' => $trendingArtikel,
+        ]);
+
+    }
 }

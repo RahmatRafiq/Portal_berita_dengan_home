@@ -44,17 +44,20 @@
              </a>
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav mr-auto">
-                     @foreach ($ktgr->take(6) as $ktgr)
-                         <li class="nav-item">
-                             <a class="nav-link" href="{{ route('kategori', $ktgr->slug) }}">{{ $ktgr->nama_kategori }}
-                                 <span class="sr-only">(current)
-                                 </span>
-                             </a>
-                         </li>
-                     @endforeach
                      <li class="nav-item ">
                          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                      </li>
+                     <li class="nav-item ">
+                         <a class="nav-link" href="{{ route('about') }}">About <span
+                                 class="sr-only">(current)</span></a>
+                         @foreach ($ktgr->take(6) as $ktgr)
+                     <li class="nav-item">
+                         <a class="nav-link" href="{{ route('kategori', $ktgr->slug) }}">{{ $ktgr->nama_kategori }}
+                             <span class="sr-only">(current)
+                             </span>
+                         </a>
+                     </li>
+                     @endforeach
                  </ul>
              </div>
          </nav>
