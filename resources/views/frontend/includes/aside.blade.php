@@ -10,8 +10,7 @@
     </div>
     <div>
         <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Berita terbaru bulan
-            {{ \Illuminate\Support\Carbon::now()->subMonth()->locale('id')->translatedFormat('F') }}
-        </div>
+            {{ now()->subMonth()->locale('id')->translatedFormat('F') }}</div>
     </div>
     <div class="row pb-3">
         @foreach ($artikelbulan as $item)

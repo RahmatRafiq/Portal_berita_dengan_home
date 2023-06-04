@@ -21,7 +21,12 @@ class FrontEndController extends Controller
         $kategori = Kategori::all();
         $ktgr = Kategori::all();
         $tentangkami = TentangKami::all();
-        $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
+        // $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
+        $trendingArtikel = Artikel::where('created_at', '>=', now()->startOfWeek())
+            ->whereMonth('created_at', now()->month)
+            ->orderBy('views', 'desc')
+            ->take(5)
+            ->get();
 
         return view('frontend.layouts.home', [
             'kategori' => $kategori,
@@ -41,11 +46,19 @@ class FrontEndController extends Controller
     {
         $artikel = Artikel::where('slug', $slug)->first();
         $artikel->increment('views'); //melakukan penambahan jumlah views ketika mengakses detail berita berdasarkan slug
-        $artikelbulan = Artikel::whereMonth('created_at', now()->month)->orderBy('created_at', 'desc')->take(7)->get();
+        $artikelbulan = Artikel::whereMonth('created_at', now()->month)
+            ->orderBy('created_at', 'desc')
+            ->take(7)
+            ->get();
         $kategori = Kategori::all();
         $ktgr = Kategori::all();
         $tentangkami = TentangKami::all();
-        $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
+        // $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
+        $trendingArtikel = Artikel::where('created_at', '>=', now()->startOfWeek())
+            ->whereMonth('created_at', now()->month)
+            ->orderBy('views', 'desc')
+            ->take(5)
+            ->get();
 
         return view('frontend.detail.detail-artikel', [
             'artikel' => $artikel,
