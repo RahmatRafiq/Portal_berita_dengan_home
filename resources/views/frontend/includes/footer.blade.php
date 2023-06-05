@@ -27,42 +27,43 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="col-12 col-md-4 col-lg-4">
-                <div class="footer_main_title py-3" style="color: white;">Hubungi kami di:</div>
-                <ul style="color: white;">
+            @foreach ($tentangkami as $item)
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="footer_main_title py-3" style="color: white;">Hubungi kami di:</div>
                     <div class="footer_mediya_icon">
                         <div class="text-center d-inline-block">
-                            <a href="{{ $item->youtube }}" class="fh5co_display_table_footer" target="_blank">
-                                <div class="fh5co_verticle_middle">
-                                    <i class="fa fa-youtube"></i>
+                            <a href="{{ $item->youtube }}" class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-youtube" style="color: white;"></i>
                                 </div>
                             </a>
                         </div>
                         <div class="text-center d-inline-block">
                             <a href="mailto:{{ $item->email }}" class="fh5co_display_table_footer">
-                                <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+                                <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"
+                                        style="color: white;"></i></div>
                             </a>
                         </div>
                         <div class="text-center d-inline-block">
                             <a href="{{ $item->twitter }}" class="fh5co_display_table_footer" target="_blank">
-                                <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
+                                <div class="fh5co_verticle_middle"><i class="fa fa-twitter" style="color: white;"></i>
+                                </div>
                             </a>
                         </div>
                         <div class="text-center d-inline-block">
                             <a href="{{ $item->facebook }}" class="fh5co_display_table_footer" target="_blank">
-                                <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+                                <div class="fh5co_verticle_middle"><i class="fa fa-facebook" style="color: white;"></i>
+                                </div>
                             </a>
                         </div>
                         <div class="text-center d-inline-block">
                             <a href="{{ $item->instagram }}" class="fh5co_display_table_footer" target="_blank">
-                                <div class="fh5co_verticle_middle"><i class="fa fa-instagram"></i></div>
+                                <div class="fh5co_verticle_middle"><i class="fa fa-instagram" style="color: white;"></i>
+                                </div>
                             </a>
                         </div>
                     </div>
-
-                </ul>
-            </div>
-
+                </div>
+            @endforeach
         </div>
     </div>
 </div>
