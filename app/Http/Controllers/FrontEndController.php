@@ -17,15 +17,18 @@ class FrontEndController extends Controller
         $penulis = Penulis::all();
         $artikel = Artikel::latest()->paginate(5);
         $artkl = Artikel::orderBy('created_at', 'desc')->get();
-        $artikelbulan = Artikel::whereMonth('created_at', now()->month)->orderBy('created_at', 'desc')->take(7)->get();
+        $artikelbulan = Artikel::orderBy('views', 'desc')->whereMonth('created_at', now()->month)->take(7)->get();
         $kategori = Kategori::all();
         $ktgr = Kategori::all();
         $tentangkami = TentangKami::all();
-        // $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
         $trendingArtikel = Artikel::where('created_at', '>=', now()->startOfWeek())
             ->whereMonth('created_at', now()->month)
             ->orderBy('views', 'desc')
             ->take(5)
+            ->get();
+        $beritaTerpopulerTahun = Artikel::whereYear('created_at', now()->year)
+            ->orderBy('views', 'desc')
+            ->take(3)
             ->get();
 
         return view('frontend.layouts.home', [
@@ -37,6 +40,7 @@ class FrontEndController extends Controller
             'tentangkami' => $tentangkami,
             'trendingArtikel' => $trendingArtikel,
             'artikelbulan' => $artikelbulan,
+            'beritaTerpopulerTahun' => $beritaTerpopulerTahun,
 
         ]);
 
@@ -46,18 +50,19 @@ class FrontEndController extends Controller
     {
         $artikel = Artikel::where('slug', $slug)->first();
         $artikel->increment('views'); //melakukan penambahan jumlah views ketika mengakses detail berita berdasarkan slug
-        $artikelbulan = Artikel::whereMonth('created_at', now()->month)
-            ->orderBy('created_at', 'desc')
-            ->take(7)
-            ->get();
+        $artikelbulan = Artikel::orderBy('views', 'desc')->whereMonth('created_at', now()->month)->take(7)->get();
+
         $kategori = Kategori::all();
         $ktgr = Kategori::all();
         $tentangkami = TentangKami::all();
-        // $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
         $trendingArtikel = Artikel::where('created_at', '>=', now()->startOfWeek())
             ->whereMonth('created_at', now()->month)
             ->orderBy('views', 'desc')
             ->take(5)
+            ->get();
+        $beritaTerpopulerTahun = Artikel::whereYear('created_at', now()->year)
+            ->orderBy('views', 'desc')
+            ->take(3)
             ->get();
 
         return view('frontend.detail.detail-artikel', [
@@ -67,6 +72,7 @@ class FrontEndController extends Controller
             'tentangkami' => $tentangkami,
             'trendingArtikel' => $trendingArtikel,
             'artikelbulan' => $artikelbulan,
+            'beritaTerpopulerTahun' => $beritaTerpopulerTahun,
 
         ]);
     }
@@ -79,7 +85,15 @@ class FrontEndController extends Controller
         $artikel = Artikel::where('kategori_id', $kategori->id)->get();
         $artkl = Artikel::where('kategori_id', $kategori->id)->orderBy('created_at', 'desc')->get();
         $penulis = Penulis::all();
-        $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
+        $trendingArtikel = Artikel::where('created_at', '>=', now()->startOfWeek())
+            ->whereMonth('created_at', now()->month)
+            ->orderBy('views', 'desc')
+            ->take(5)
+            ->get();
+        $beritaTerpopulerTahun = Artikel::whereYear('created_at', now()->year)
+            ->orderBy('views', 'desc')
+            ->take(3)
+            ->get();
 
         return view('frontend.detail.blog-kategori', [
             'kategori' => $kategori,
@@ -89,17 +103,8 @@ class FrontEndController extends Controller
             'ktgr' => $ktgr,
             'tentangkami' => $tentangkami,
             'trendingArtikel' => $trendingArtikel,
+            'beritaTerpopulerTahun' => $beritaTerpopulerTahun,
         ]);
-    }
-
-    public function tentangKami()
-    {
-        $tentangkami = TentangKami::all();
-        return view('frontend.layouts.home', [
-            'tentangkami' => $tentangkami,
-
-        ]);
-
     }
 
     public function search(Request $request)
@@ -113,7 +118,15 @@ class FrontEndController extends Controller
         $kategori = Kategori::all();
         $ktgr = Kategori::all();
         $tentangkami = TentangKami::all();
-        $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
+        $trendingArtikel = Artikel::where('created_at', '>=', now()->startOfWeek())
+            ->whereMonth('created_at', now()->month)
+            ->orderBy('views', 'desc')
+            ->take(5)
+            ->get();
+        $beritaTerpopulerTahun = Artikel::whereYear('created_at', now()->year)
+            ->orderBy('views', 'desc')
+            ->take(3)
+            ->get();
 
         return view('frontend.detail.search', [
             'artikel' => $artikel,
@@ -122,6 +135,7 @@ class FrontEndController extends Controller
             'ktgr' => $ktgr,
             'tentangkami' => $tentangkami,
             'trendingArtikel' => $trendingArtikel,
+            'beritaTerpopulerTahun' => $beritaTerpopulerTahun,
         ]);
     }
 
@@ -129,11 +143,21 @@ class FrontEndController extends Controller
     {
         $tentangkami = TentangKami::all();
         $ktgr = Kategori::all();
-        $trendingArtikel = Artikel::orderBy('views', 'desc')->take(5)->get();
+        $trendingArtikel = Artikel::where('created_at', '>=', now()->startOfWeek())
+            ->whereMonth('created_at', now()->month)
+            ->orderBy('views', 'desc')
+            ->take(5)
+            ->get();
+        $beritaTerpopulerTahun = Artikel::whereYear('created_at', now()->year)
+            ->orderBy('views', 'desc')
+            ->take(3)
+            ->get();
+
         return view('frontend.detail.about', [
             'tentangkami' => $tentangkami,
             'ktgr' => $ktgr,
             'trendingArtikel' => $trendingArtikel,
+            'beritaTerpopulerTahun' => $beritaTerpopulerTahun,
         ]);
 
     }

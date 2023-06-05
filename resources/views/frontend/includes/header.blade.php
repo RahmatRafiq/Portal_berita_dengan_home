@@ -45,18 +45,32 @@
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                  <ul class="navbar-nav mr-auto">
                      <li class="nav-item ">
-                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                     </li>
-                     <li class="nav-item ">
-                         <a class="nav-link" href="{{ route('about') }}">About <span
-                                 class="sr-only">(current)</span></a>
-                         @foreach ($ktgr->take(6) as $ktgr)
-                     <li class="nav-item">
-                         <a class="nav-link" href="{{ route('kategori', $ktgr->slug) }}">{{ $ktgr->nama_kategori }}
-                             <span class="sr-only">(current)
+                         <a class="nav-link" href="/">
+                             <b>
+                                 Home
+                             </b>
+                             <span class="sr-only">
+                                 (current)
                              </span>
                          </a>
                      </li>
+                     <li class="nav-item ">
+                         <a class="nav-link" href="{{ route('about') }}">
+                             <b>
+                                 About
+                             </b>
+                             <span class="sr-only">
+                                 (current)
+                             </span>
+                         </a>
+                     </li>
+                     @foreach ($ktgr->take(6) as $ktgr)
+                         <li class="nav-item">
+                             <a class="nav-link" href="{{ route('kategori', $ktgr->slug) }}">{{ $ktgr->nama_kategori }}
+                                 <span class="sr-only">(current)
+                                 </span>
+                             </a>
+                         </li>
                      @endforeach
                  </ul>
              </div>

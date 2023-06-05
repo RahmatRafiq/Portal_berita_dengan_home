@@ -23,4 +23,5 @@ class TentangKami extends Model
         'twitter',
 
     ];
+
 }
