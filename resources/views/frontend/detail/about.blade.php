@@ -1,16 +1,16 @@
 @extends('frontend.layouts.frontend')
 @section('content')
     @foreach ($tentangkami as $tk)
-        <div class="container-fluid contact_us_bg_img">
-            <div class="container">
-                <div class="row">
-                    <a href="#" class="fh5co_con_123"><i class="fa fa-home"></i></a>
-                    <a href="#" class="fh5co_con pt-2"> Contact Us </a>
-                </div>
-            </div>
-        </div>
         <div class="container-fluid  fh5co_fh5co_bg_contcat">
             <div class="container">
+                <section id="tentang-kami">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Tentang Kami</h2>
+                            <p>{!! $tk->deskripsi !!}</p>
+                        </div>
+                    </div>
+                </section>
                 <div class="row py-4">
                     <div class="col-md-4 py-3">
                         <div class="row fh5co_contact_us_no_icon_difh5co_hover">
