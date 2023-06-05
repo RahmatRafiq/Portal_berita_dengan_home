@@ -23,10 +23,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Judul</th>
-                                        {{-- <th>Deskripsi</th> --}}
-                                        {{-- <th>Alamat</th> --}}
                                         <th>Gambar</th>
                                         <th>Telepon</th>
                                         <th>Action</th>
@@ -35,10 +32,7 @@
                                 <tbody>
                                     @forelse ($tentang as $row)
                                         <tr>
-                                            <td>{{ $row->id }}</td>
                                             <td>{{ $row->judul }}</td>
-                                            {{-- <td>{{ $row->deskripsi }}</td> --}}
-                                            {{-- <td>{{ $row->alamat }}</td> --}}
                                             <td>
                                                 <img src="{{ asset('uploads/' . $row->gambar) }}" width="150px">
                                             </td>
@@ -49,11 +43,6 @@
                                                 <form action="{{ route('tentang-kami.destroy', $row->id) }}" method="post"
                                                     class="d-inline">
                                                     @csrf
-                                                    @method('delete')
-                                                    <button class="btn btn-danger btn-sm" type="submit"
-                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                                                        <i class="fa fa-trash"></i> Delete
-                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>
