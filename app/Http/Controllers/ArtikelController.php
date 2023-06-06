@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use App\Models\Kategori;
 use App\Models\Penulis;
+use App\Models\TentangKami;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,8 +17,10 @@ class ArtikelController extends Controller
     {
 
         $artikel = Artikel::all();
+        $tentangkami = TentangKami::first();
         return view('backend.artikel.index', [
             'artikel' => $artikel,
+            'tentangkami' => $tentangkami,
         ]);
     }
 
@@ -25,7 +28,9 @@ class ArtikelController extends Controller
     {
         $kategori = Kategori::all();
         $penulis = Penulis::all();
-        return view('backend.artikel.create', compact('penulis', 'kategori'));
+        $tentangkami = TentangKami::first();
+
+        return view('backend.artikel.create', compact('penulis', 'kategori', 'tentangkami'));
     }
 
     public function store(Request $request)
@@ -52,7 +57,9 @@ class ArtikelController extends Controller
         $artikel = Artikel::find($id);
         $kategori = Kategori::all();
         $penulis = Penulis::all();
-        return view('backend.artikel.edit', compact('artikel', 'penulis', 'kategori'));
+        $tentangkami = TentangKami::first();
+
+        return view('backend.artikel.edit', compact('artikel', 'penulis', 'kategori', 'tentangkami'));
 
     }
 

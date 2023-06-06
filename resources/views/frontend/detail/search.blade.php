@@ -27,7 +27,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
+                        {{-- <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
                             <div class="col-12 text-center pb-4 pt-4">
                                 @if ($artikel->currentPage() > 1)
                                     <a href="{{ $artikel->previousPageUrl() }}" class="btn_mange_pagging"><i
@@ -42,7 +42,7 @@
                                             class="fa fa-long-arrow-right"></i>&nbsp;&nbsp;</a>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
                     @else
                         <h2>Tidak ada hasil yang ditemukan untuk "{{ $keyword }}"</h2>
                     @endif

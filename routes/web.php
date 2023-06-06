@@ -21,15 +21,13 @@ Route::get('/search', [App\Http\Controllers\FrontEndController::class, 'search']
 Route::get('/about', [App\Http\Controllers\FrontEndController::class, 'about'])->name('about');
 
 Auth::routes();
+Route::get('/cok-regis123321-cok', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/cok-regis123321-cok', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
+
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard');
     Route::resource('/kategori', App\Http\Controllers\KategoriController::class);
-    // Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
-    // Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
-    // Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
-    // Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
-
     Route::resource('/artikel', App\Http\Controllers\ArtikelController::class);
     Route::resource('/penulis', App\Http\Controllers\PenulisController::class);
     Route::resource('/tentang-kami', App\Http\Controllers\TentangKamiController::class);

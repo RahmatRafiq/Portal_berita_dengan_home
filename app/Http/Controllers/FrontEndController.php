@@ -113,7 +113,7 @@ class FrontEndController extends Controller
 
         $artikel = Artikel::where('judul', 'like', '%' . $keyword . '%')
             ->orWhere('body', 'like', '%' . $keyword . '%')
-            ->paginate(5);
+            ->paginate();
 
         $kategori = Kategori::all();
         $ktgr = Kategori::all();
