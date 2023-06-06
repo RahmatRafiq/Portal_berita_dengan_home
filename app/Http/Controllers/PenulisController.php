@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penulis;
+use App\Models\TentangKami;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -13,12 +14,17 @@ class PenulisController extends Controller
     {
 
         $penulis = Penulis::all();
-        return view('backend.penulis.index', compact('penulis'));
+        $tentangkami = TentangKami::first();
+
+        return view('backend.penulis.index', compact('penulis', 'tentangkami'));
     }
 
     public function create()
     {
-        return view('backend.penulis.create');
+        $tentangkami = TentangKami::first();
+
+        return view('backend.penulis.create', compact('tentangkami'));
+
     }
 
     public function store(Request $request)
@@ -37,8 +43,9 @@ class PenulisController extends Controller
 
     public function edit($id)
     {
+        $tentangkami = TentangKami::first();
         $penulis = Penulis::find($id);
-        return \view ('backend.penulis.edit', compact('penulis'));
+        return \view ('backend.penulis.edit', compact('penulis', 'tentangkami'));
 
     }
 

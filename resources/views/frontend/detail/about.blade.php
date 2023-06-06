@@ -6,6 +6,7 @@
                 <div class="container paddding">
                     <div class="row mx-0">
                         <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                            <h2>Tentang Kami</h2>
                             <p>
                                 {!! $tk->deskripsi !!}
                             </p>

@@ -20,7 +20,12 @@
             </ul>
         </nav>
         <div class="copyright ml-auto">
-            2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.themekita.com">ThemeKita</a>
+            2023, backen <i class="fa fa-code"></i> by <a href="https://www.linkedin.com/in/rahmat-rafiq-079209247/"
+                target="_blank">Rahmat</a>
+        </div>
+        <div class="copyright ml-auto">
+            2018, made with <i class="fa fa-heart heart text-danger"></i> by <a
+                href="https://www.themekita.com">ThemeKita</a>
         </div>
     </div>
 </footer>

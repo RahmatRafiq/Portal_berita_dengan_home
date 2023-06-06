@@ -69,20 +69,6 @@ class ArtikelController extends Controller
             'is_active' => 1,
         );
 
-        // $artikel = Artikel::find($id);
-
-        // if ($artikel->gambar_artikel) {
-        //     Storage::delete($artikel->gambar_artikel);
-        // }
-
-        // if ($request->hasFile('gambar_artikel')) {
-        //     $gambar_artikel = $request->file('gambar_artikel')->store('artikel');
-        //     $data_saved['gambar_artikel'] = $gambar_artikel;
-        // }
-
-        // $artikel->update($data_saved);
-
-        // return redirect()->route('artikel.index')->with(['success' => 'Data Berhasil Disimpan']);
         $artikel = Artikel::find($id);
 
         if ($request->hasFile('gambar_artikel')) {

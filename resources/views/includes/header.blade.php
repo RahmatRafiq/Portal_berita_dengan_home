@@ -1,11 +1,12 @@
 <div class="main-header">
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="blue">
-
-        <a href="index.html" class="logo">
-            <img src="../assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
+        <a href="/" class="logo">
+            <img src="{{ asset('uploads/' . $tentangkami->gambar) }}" alt="navbar brand" class="navbar-brand"
+                style="max-height: 50px; max-width: 150px;">
         </a>
-        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+            data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <i class="icon-menu"></i>
             </span>
@@ -17,6 +18,7 @@
             </button>
         </div>
     </div>
+
     <!-- End Logo Header -->
 
     <!-- Navbar Header -->
@@ -37,12 +39,14 @@
             </div>
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item toggle-nav-search hidden-caret">
-                    <a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
+                    <a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false"
+                        aria-controls="search-nav">
                         <i class="fa fa-search"></i>
                     </a>
                 </li>
-                <li class="nav-item dropdown hidden-caret">
-                    <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{-- <li class="nav-item dropdown hidden-caret">
+                    <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
                     </a>
                     <ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
@@ -107,12 +111,14 @@
                             </div>
                         </li>
                         <li>
-                            <a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i> </a>
+                            <a class="see-all" href="javascript:void(0);">See all messages<i
+                                    class="fa fa-angle-right"></i> </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item dropdown hidden-caret">
-                    <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </li> --}}
+                {{-- <li class="nav-item dropdown hidden-caret">
+                    <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
                         <span class="notification">4</span>
                     </a>
@@ -165,11 +171,12 @@
                             </div>
                         </li>
                         <li>
-                            <a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
+                            <a class="see-all" href="javascript:void(0);">See all notifications<i
+                                    class="fa fa-angle-right"></i> </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item dropdown hidden-caret">
+                </li> --}}
+                {{-- <li class="nav-item dropdown hidden-caret">
                     <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fas fa-layer-group"></i>
                     </a>
@@ -221,8 +228,8 @@
                             </div>
                         </div>
                     </div>
-                </li>
-                <li class="nav-item dropdown hidden-caret">
+                </li> --}}
+                {{-- <li class="nav-item dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
                             <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
@@ -232,10 +239,12 @@
                         <div class="dropdown-user-scroll scrollbar-outer">
                             <li>
                                 <div class="user-box">
-                                    <div class="avatar-lg"><img src="../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+                                    <div class="avatar-lg"><img src="../assets/img/profile.jpg" alt="image profile"
+                                            class="avatar-img rounded"></div>
                                     <div class="u-text">
                                         <h4>Hizrian</h4>
-                                        <p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                        <p class="text-muted">hello@example.com</p><a href="profile.html"
+                                            class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                     </div>
                                 </div>
                             </li>
@@ -251,8 +260,15 @@
                             </li>
                         </div>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
+            <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                <span style="color: white;">
+                    Selamat Datang {{ Auth::user()->name }}
+                    {{-- <span class="user-level"> Administrator</span> --}}
+                    {{-- <span class="caret"></span> --}}
+                </span>
+            </a>
         </div>
     </nav>
     <!-- End Navbar -->

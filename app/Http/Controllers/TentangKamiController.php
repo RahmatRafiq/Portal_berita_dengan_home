@@ -12,16 +12,17 @@ class TentangKamiController extends Controller
 
     public function index()
     {
+        $tentangkami = TentangKami::first();
         $tentang = TentangKami::all();
-        return view('backend.tentang-kami.index', compact('tentang'));
+        return view('backend.tentang-kami.index', compact('tentang', 'tentangkami'));
     }
 
     public function create()
     {
 
         $tentang = TentangKami::all();
-
-        return view('backend.tentang-kami.create', compact('tentang'));
+        $tentangkami = TentangKami::first();
+        return view('backend.tentang-kami.create', compact('tentang', 'tentangkami'));
     }
 
     public function store(Request $request)
@@ -47,8 +48,9 @@ class TentangKamiController extends Controller
 
     public function edit($id)
     {
+        $tentangkami = TentangKami::first();
         $tentang = TentangKami::find($id);
-        return \view ('backend.tentang-kami.edit', compact('tentang'));
+        return \view ('backend.tentang-kami.edit', compact('tentang', 'tentangkami'));
 
     }
 
