@@ -1,6 +1,7 @@
     <?php
 
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,13 +22,10 @@ Route::get('/search', [App\Http\Controllers\FrontEndController::class, 'search']
 Route::get('/about', [App\Http\Controllers\FrontEndController::class, 'about'])->name('about');
 
 Auth::routes(
-
+    [
+        'register' => false,
+    ]
 );
-Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])
-    ->name('register')
-    ->middleware('disableRegister');
-Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])
-    ->middleware('disableRegister');
 
 Route::get('/cok-regis123321-cok', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/cok-regis123321-cok', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
@@ -39,5 +37,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/artikel', App\Http\Controllers\ArtikelController::class);
     Route::resource('/penulis', App\Http\Controllers\PenulisController::class);
     Route::resource('/tentang-kami', App\Http\Controllers\TentangKamiController::class);
-
 });

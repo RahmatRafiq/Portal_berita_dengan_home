@@ -20,7 +20,7 @@
             </ul>
         </nav>
         <div class="copyright ml-auto">
-            2023, backen <i class="fa fa-code"></i> by <a href="https://www.linkedin.com/in/rahmat-rafiq-079209247/"
+            2023, Backend <i class="fa fa-code"></i> by <a href="https://www.linkedin.com/in/rahmat-rafiq-079209247/"
                 target="_blank">Rahmat</a>
         </div>
         <div class="copyright ml-auto">

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Penulis;
 use App\Models\TentangKami;
 use Illuminate\Http\Request;

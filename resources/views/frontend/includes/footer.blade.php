@@ -80,12 +80,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 py-4 Reserved">
-                © 2023 All rights reserved. Design by <a href="mailto:rahmatrafiq.1999@gmail.com"
-                    title="Rahmat">Rahmat</a>.
+                © 2023 All rights reserved. Backend by <a href="https://www.linkedin.com/in/rahmat-rafiq-079209247/"
+                    title="Rahmat" target="_blank">Rahmat</a>.
+            </div>
+            <div class="col-12 col-md-6 py-4 Reserved">
+                © Copyright 2018, All rights reserved. Design by
+                <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>.
             </div>
         </div>
     </div>
 </div>
+
 <div class="gototop js-top">
     <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
 </div>
