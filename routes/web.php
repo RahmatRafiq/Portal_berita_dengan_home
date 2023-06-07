@@ -20,7 +20,15 @@ Route::get('/kategori/{slug}', [App\Http\Controllers\FrontEndController::class, 
 Route::get('/search', [App\Http\Controllers\FrontEndController::class, 'search'])->name('search');
 Route::get('/about', [App\Http\Controllers\FrontEndController::class, 'about'])->name('about');
 
-Auth::routes();
+Auth::routes(
+
+);
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])
+    ->name('register')
+    ->middleware('disableRegister');
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])
+    ->middleware('disableRegister');
+
 Route::get('/cok-regis123321-cok', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/cok-regis123321-cok', [App\Http\Controllers\Auth\RegisterController::class, 'register']);
 
