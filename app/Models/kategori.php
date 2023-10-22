@@ -14,5 +14,8 @@ class Kategori extends Model
         'slug',
     ];
     protected $hidden = [];
-
+    public function Kategori()
+    {
+        return $this->hasMany(Artikel::class, 'kategori_id', 'id');
+    }
 }
